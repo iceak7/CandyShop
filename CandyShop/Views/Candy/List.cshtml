@@ -1,0 +1,20 @@
+﻿@model CandyListViewModel
+@{
+
+    if (Model.CurrentCategory == "All Candy")
+    {
+        ViewData["controller"] = "list-all";
+    }
+    else
+    {
+        ViewData["controller"] = "list";
+    }
+}
+<h1>@Model.CurrentCategory</h1>
+
+@foreach (var candy in Model.Candies)
+{
+    <partial name="Components/_candyCard" model="candy" view-data="ViewData" />
+}
+
+
